@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.example.databindinghomework.viewmodel.MainViewModel.ViewObserable" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <EditText
+        android:id="@+id/edittext_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/framelayout_a"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/framelayout_a"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/framelayout_b"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_input" />
+
+    <FrameLayout
+        android:id="@+id/framelayout_b"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/framelayout_c"
+        app:layout_constraintTop_toBottomOf="@+id/framelayout_a" />
+
+    <FrameLayout
+        android:id="@+id/framelayout_c"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_test"
+        app:layout_constraintTop_toBottomOf="@+id/framelayout_b"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textview_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{mainViewModel.input}"
+        app:layout_constraintTop_toBottomOf="@+id/framelayout_c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="TEST"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
